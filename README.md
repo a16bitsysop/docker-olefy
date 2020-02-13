@@ -1,5 +1,5 @@
 # docker-olefy
-Dockerfile to install [olefy](https://github.com/HeinleinSupport/olefy) as a docker container.
+Alpine based Dockerfile to install [olefy](https://github.com/HeinleinSupport/olefy) as a docker container.
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/olefy.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/olefy/)
 [![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/olefy.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/olefy/)
