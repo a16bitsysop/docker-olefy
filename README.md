@@ -23,7 +23,7 @@ Github Repository: [https://github.com/a16bitsysop/docker-olefy](https://github.
 
 
 ## Examples
-To run a container with tmpfs mount on /tmp and olevba in /usr/bin
+**To run a container with tmpfs mount on /tmp and olevba in /usr/bin**
 ```
 #docker container run --mount type=tmpfs,destination=/tmp -p 10050:10050 -d --name olefy --env OLEFY_BINDADDRESS=0.0.0.0 --env OLEFY_OLEVBA_PATH=/usr/bin/olevba3 a16bitsysop/olefy
 ```
