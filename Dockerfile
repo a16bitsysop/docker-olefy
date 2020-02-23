@@ -11,5 +11,4 @@ wget https://raw.githubusercontent.com/HeinleinSupport/olefy/master/olefy.py
 USER nobody 
 ENTRYPOINT [ "python3", "-u", "olefy.py" ]
 
-VOLUME [ "/tmp" ]
 EXPOSE 10050
