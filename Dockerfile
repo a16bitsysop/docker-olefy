@@ -3,7 +3,7 @@ LABEL maintainer "Duncan Bellamy <dunk@denkimushi.com>"
 ENV url=HeinleinSupport/olefy/master/olefy.py
 
 WORKDIR [ /usr/local/bin ]
-RUN apk add --no-cache python3 libffi py3-magic openssl gzip py3-cryptography py3-cffi py3-six py3-setuptools py3-olefile
+RUN apk add --no-cache openssl gzip py3-magic py3-cryptography py3-cffi py3-six py3-setuptools py3-olefile
 RUN apk add --virtual .build-deps gcc musl-dev python3-dev libffi-dev openssl-dev curl && \
 python3 -m pip install -U pip && python3 -m pip install -U wheel oletools && \
 curl -sSI https://raw.githubusercontent.com/$url | grep "^ETag:" | sed -e s+ETag:.W/++g -e s+\"++g > /etc/githash && \
