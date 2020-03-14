@@ -9,9 +9,7 @@ before_script:
   - VER=$(curl -sSI https://raw.githubusercontent.com/$url | grep "^ETag:" | sed -e s+ETag:.W/++g -e s+\"++g)
   - TAG="-t $IMAGE_NAME:$(date +%Y.%m.%d)"
   - MY_VER="$(./docker_hash.sh $IMAGE_NAME)"
-  - echo "Git    version is $VER"
-  - echo "Docker version is $MY_VER"
-  - if [ -n "$MY_VER" ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
+  - if [ ! -z "$MY_VER" ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
   - curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --use
