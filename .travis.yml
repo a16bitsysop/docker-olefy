@@ -9,7 +9,7 @@ before_script:
   - VER=$(curl -sSI https://raw.githubusercontent.com/$url | grep "^ETag:" | sed -e s+ETag:.W/++g -e s+\"++g)
   - TAG="-t $IMAGE_NAME:$(date +%Y.%m.%d)"
   - |
-     docker image pull $1 > /dev/null 2>&1 && MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')"
+     docker image pull $IMAGE_NAME && MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')"
      echo "Git    version is $VER"
      echo "Docker version is $MY_VER"
      if [ -n "$MY_VER" ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
