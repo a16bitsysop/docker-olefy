@@ -7,6 +7,7 @@ env:
 
 before_script:
   - VER=$(curl -sSI https://raw.githubusercontent.com/$url | grep "^ETag:" | sed -e s+ETag:.W/++g -e s+\"++g)
+  - VER="$VER"-alpine"$(docker container run --rm alpine cat /etc/alpine-release)"
   - TAG="-t $IMAGE_NAME:$(date +%Y.%m.%d)"
   - |
      docker image pull $IMAGE_NAME && MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')"
