@@ -6,15 +6,16 @@ env:
   - DOCKER_CLI_EXPERIMENTAL=enabled IMAGE_NAME=a16bitsysop/olefy url=HeinleinSupport/olefy/master/olefy.py
 
 before_script:
-  - VER=$(curl -sSI https://raw.githubusercontent.com/$url | grep "^ETag:" | sed -e s+ETag:.W/++g -e s+\"++g)
-  - ALP="$(docker container run --rm alpine cat /etc/alpine-release)"
+  - ALP=$(docker container run --rm alpine cat /etc/alpine-release)
+  - VER="$(wget --spider -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" | sed -e s+ETag:.W/++g -e s+\"++g -e 's+^[[:space:]]*++')$ALP"
   - TAG="-t $IMAGE_NAME:$(date +%Y.%m.%d)-alpine$ALP"
+  - MY_ALP=$(docker container run --rm $IMAGE_NAME cat /etc/alpine-release)
+  - MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')$MY_ALP"
   - |
-     docker image pull $IMAGE_NAME && MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')"
-     docker image pull $IMAGE_NAME && MY_ALP="$(docker container run --rm $IMAGE_NAME cat /etc/alpine-release)"
+     echo "Checking if update needed..."
      echo "Git    version is $VER"
      echo "Docker version is $MY_VER"
-     if [ -z $NOW ] && [ -n "$MY_VER" ] && [ "$MY_VER" = "$VER" ] && [ "$MY_ALP" = "$ALP" ]; then travis_terminate 0; fi
+     if [ -z $NOW ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
   - curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --use
