@@ -8,7 +8,7 @@ env:
 before_script:
   - ALP=$(docker container run --rm alpine cat /etc/alpine-release)
   - VER="$(wget --spider -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" | sed -e s+ETag:.W/++g -e s+\"++g -e 's+^[[:space:]]*++')$ALP"
-  - TAG="-t $IMAGE_NAME:$(date +%Y.%m.%d)-alpine$ALP"
+  - TAG="-t $IMAGE_NAME:$(date +%d%m%g)-alpine$ALP"
   - MY_ALP=$(docker container run --rm $IMAGE_NAME cat /etc/alpine-release)
   - MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')$MY_ALP"
   - |
