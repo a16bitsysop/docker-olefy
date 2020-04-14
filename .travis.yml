@@ -1,6 +1,4 @@
-os: linux
-dist: bionic
-language: minimal
+import: a16bitsysop/travis-build-configs:docker-apt.yml
 
 env:
   - DOCKER_CLI_EXPERIMENTAL=enabled IMAGE_NAME=a16bitsysop/olefy url=HeinleinSupport/olefy/master/olefy.py
@@ -16,7 +14,6 @@ before_script:
      echo "Git    version is $VER"
      echo "Docker version is $MY_VER"
      if [ -z $NOW ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
-  - curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --use
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
