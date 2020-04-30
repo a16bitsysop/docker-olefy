@@ -6,6 +6,8 @@ NME=olefy
 
 if [ -n "$TIMEZONE" ]
 then
+  echo "Waiting for DNS"
+  ping -c1 -W60 google.com || ping -c1 -W60 www.google.com
   apk add --no-cache tzdata
   if [ -f /usr/share/zoneinfo/"$TIMEZONE" ]
   then
