@@ -1,7 +1,7 @@
 import: a16bitsysop/travis-build-configs:docker-apt.yml
 
 env:
-  - DOCKER_CLI_EXPERIMENTAL=enabled IMAGE_NAME=a16bitsysop/olefy url=HeinleinSupport/olefy/master/olefy.py
+  - IMAGE_NAME=a16bitsysop/olefy url=HeinleinSupport/olefy/master/olefy.py
 
 before_script:
   - ALP=$(docker container run --rm alpine cat /etc/alpine-release)
@@ -13,10 +13,9 @@ before_script:
      echo "Checking if update needed..."
      echo "Git    version is $VER"
      echo "Docker version is $MY_VER"
-     if [ -z $NOW ] && [ "$MY_VER" = "$VER" ]; then docker logout && travis_terminate 0; fi
+     if [ -z $NOW ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
 
 script:
   - if [ -z "$NOW" ] || [ "$NOW" = "later" ]; then for i in {1..15}; do sleep 1m; echo "waiting $i mins"; done; fi
   - docker buildx build --platform linux/amd64,linux/386,linux/ppc64le,linux/s390x,linux/arm64,linux/arm/v7 $TAG -t "$IMAGE_NAME" --push .
-  - docker logout
   - curl -X POST "https://hooks.microbadger.com/images/$IMAGE_NAME/$WEBHOOK"
