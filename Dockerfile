@@ -10,7 +10,7 @@ RUN sed -i -e 's+v[[:digit:]]\..*\/+edge\/+g' /etc/apk/repositories \
 && pip3 install --no-cache-dir oletools
 
 WORKDIR /home/olefy/
-COPY --chown=olefy:olefy profile .profile
+COPY --chown=olefy:olefy profile profile
 
 WORKDIR /usr/local/bin
 COPY entrypoint.sh .
