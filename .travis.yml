@@ -4,11 +4,11 @@ env:
   - IMAGE_NAME=a16bitsysop/olefy url=HeinleinSupport/olefy/master/olefy.py
 
 before_script:
-  - ALP=$(docker container run --rm alpine cat /etc/alpine-release)
-  - VER="$(wget --spider -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" | sed -e s+ETag:.W/++g -e s+\"++g -e 's+^[[:space:]]*++')$ALP"
+  - ALP=$(version.py -b)
+  - VER="$(version.py -g $url)$ALP"
   - TAG="-t $IMAGE_NAME:$(date +%d%m%g)-alpine$ALP"
   - MY_ALP=$(docker container run --rm $IMAGE_NAME cat /etc/alpine-release)
-  - MY_VER="$(docker container run --rm $IMAGE_NAME sh -c 'F="/etc/githash"; if [ -f "$F" ]; then cat "$F"; fi')$MY_ALP"
+  - MY_VER="$(version.py -f $IMAGE_NAME)$MY_ALP"
   - |
      echo "Checking if update needed..."
      echo "Git    version is $VER"
