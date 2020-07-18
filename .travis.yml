@@ -4,9 +4,9 @@ env:
   - IMAGE_NAME=a16bitsysop/olefy url=HeinleinSupport/olefy/master/olefy.py
 
 before_script:
-  - ALP=$(version.py -b)
-  - VER="$(version.py -g $url)$ALP"
-  - TAG="-t $IMAGE_NAME:$(date +%d%m%g)-alpine$ALP"
+  - APK_VER=$(version.py -e -a $APK)
+  - ALP_VER=$(version.py -b)
+  - VER=$APK_VER"-alpine"$ALP_VER
   - MY_ALP=$(version.py -m $IMAGE_NAME)
   - MY_VER="$(version.py -f $IMAGE_NAME)$MY_ALP"
   - |
@@ -17,5 +17,5 @@ before_script:
 
 script:
   - if [ -z "$NOW" ] || [ "$NOW" = "later" ]; then for i in {1..15}; do sleep 1m; echo "waiting $i mins"; done; fi
-  - docker-build.sh "$TAG" "$ALP_VER" "$APK_VER"
+  - docker-build.sh "$VER" "$ALP_VER" "$APK_VER"
   - curl -X POST "https://hooks.microbadger.com/images/$IMAGE_NAME/$WEBHOOK"
