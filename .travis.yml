@@ -16,7 +16,6 @@ before_script:
      if [ -z $NOW ] && [ "$MY_VER" = "$VER" ]; then travis_terminate 0; fi
 
 script:
-  - if [ -z "$NOW" ] || [ "$NOW" = "later" ]; then for i in {1..15}; do sleep 1m; echo "waiting $i mins"; done; fi
   - docker-test.sh || travis_terminate 1
   - docker-build.sh "$TAG" "$ALP_VER" "$VER"
   - curl -X POST "https://hooks.microbadger.com/images/$IMAGE_NAME/$WEBHOOK"
