@@ -3,8 +3,8 @@ Alpine based Dockerfile to install [olefy](https://github.com/HeinleinSupport/ol
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/olefy.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/olefy/)
 [![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/olefy.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/olefy/)
-[![](https://images.microbadger.com/badges/version/a16bitsysop/olefy.svg)](https://microbadger.com/images/a16bitsysop/olefy "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/a16bitsysop/olefy.svg)](https://microbadger.com/images/a16bitsysop/olefy "Get your own commit badge on microbadger.com")
+[![Version](https://images.microbadger.com/badges/version/a16bitsysop/olefy.svg)](https://microbadger.com/images/a16bitsysop/olefy "Get your own version badge on microbadger.com")
+[![Commit](https://images.microbadger.com/badges/commit/a16bitsysop/olefy.svg)](https://microbadger.com/images/a16bitsysop/olefy "Get your own commit badge on microbadger.com")
 
 ## Github
 Github Repository: [https://github.com/a16bitsysop/docker-olefy](https://github.com/a16bitsysop/docker-olefy)
@@ -25,6 +25,6 @@ OLEFY_BINDADDRESS is already set to 0.0.0.0 to listen to all interfaces and OLEF
 
 ## Examples
 **To run a container with tmpfs mount on /tmp**
-```
+```bash
 #docker container run --mount type=tmpfs,destination=/tmp -p 10050:10050 -d --name olefy a16bitsysop/olefy
 ```
