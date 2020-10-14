@@ -24,4 +24,4 @@ RUN wget -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" \
 CMD [ "entrypoint.sh" ]
 EXPOSE 10050
 
-HEALTHCHECK --start-period=60s CMD health.sh
+HEALTHCHECK --start-period=60s CMD /usr/local/bin/health.sh
