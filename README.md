@@ -37,6 +37,6 @@ OLEFY_OLEVBA_PATH is set the correct path as well, this is done in the olefy
 ## Examples
 **To run a container with tmpfs mount on /tmp**
 ```bash
-#docker container run --mount type=tmpfs,destination=/tmp -p 10050:10050 \
+docker container run --mount type=tmpfs,destination=/tmp -p 10050:10050 \
 -d --name olefy a16bitsysop/olefy
 ```
