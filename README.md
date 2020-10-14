@@ -1,18 +1,10 @@
 # docker-olefy
 Alpine based Dockerfile to install [olefy](https://github.com/HeinleinSupport/olefy) as a docker container.
 
-[![Docker Pulls]
-(https://img.shields.io/docker/pulls/a16bitsysop/olefy.svg?style=flat-square)]
-(https://hub.docker.com/r/a16bitsysop/olefy/)
-[![Docker Stars]
-(https://img.shields.io/docker/stars/a16bitsysop/olefy.svg?style=flat-square)]
-(https://hub.docker.com/r/a16bitsysop/olefy/)
-[![Ver](https://images.microbadger.com/badges/version/a16bitsysop/olefy.svg)]
-(https://microbadger.com/images/a16bitsysop/olefy 
-"Get your own version badge on microbadger.com")
-[![Commit](https://images.microbadger.com/badges/commit/a16bitsysop/olefy.svg)]
-(https://microbadger.com/images/a16bitsysop/olefy
-"Get your own badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/olefy.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/olefy/)
+[![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/olefy.svg?style=flat-square)](https://hub.docker.com/r/a16bitsysop/olefy/)
+[![Ver](https://images.microbadger.com/badges/version/a16bitsysop/olefy.svg)](https://microbadger.com/images/a16bitsysop/olefy "Get your own version badge on microbadger.com")
+[![Commit](https://images.microbadger.com/badges/commit/a16bitsysop/olefy.svg)](https://microbadger.com/images/a16bitsysop/olefy "Get your own badge on microbadger.com")
 
 ## Github
 Github Repository: [https://github.com/a16bitsysop/docker-olefy]
