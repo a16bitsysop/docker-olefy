@@ -24,4 +24,4 @@ RUN wget -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" \
 CMD [ "entrypoint.sh" ]
 EXPOSE 10050
 
-HEALTHCHECK CMD [ "$(echo PING | nc 127.0.0.1 10050)" = "PONG" ]
+HEALTHCHECK --start-period=60 CMD [ "$(echo PING | nc 127.0.0.1 10050)" = "PONG" ]
