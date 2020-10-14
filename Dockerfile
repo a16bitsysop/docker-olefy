@@ -13,7 +13,7 @@ WORKDIR /home/olefy/
 COPY --chown=olefy:olefy profile profile
 
 WORKDIR /usr/local/bin
-COPY travis-helpers/set-timezone.sh entrypoint.sh health.sh ./
+COPY travis-helpers/set-timezone.sh entrypoint.sh ./
 
 SHELL [ "/bin/ash", "-o", "pipefail", "-c" ]
 # hadolint ignore=DL3018
@@ -24,4 +24,4 @@ RUN wget -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" \
 CMD [ "entrypoint.sh" ]
 EXPOSE 10050
 
-HEALTHCHECK --start-period=60s CMD /usr/local/bin/health.sh
+HEALTHCHECK --start-period=60s CMD RET="$(echo PING | nc 127.0.0.1 10050 | grep -q PONG)" || exit 1
