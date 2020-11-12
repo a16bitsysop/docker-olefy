@@ -3,8 +3,7 @@ LABEL maintainer="Duncan Bellamy <dunk@denkimushi.com>"
 ENV url=HeinleinSupport/olefy/master/olefy.py
 
 # hadolint ignore=DL3018,DL3013
-RUN sed -i -e 's/v[[:digit:]]\..*\//edge\//g' /etc/apk/repositories \
-&& addgroup olefy 2>/dev/null \
+RUN addgroup olefy 2>/dev/null \
 && adduser -D --gecos "olefy scanner" --ingroup olefy olefy 2>/dev/null \
 && apk add --no-cache openssl gzip py3-pip py3-cryptography py3-magic \
 && pip3 install --no-cache-dir wheel \
