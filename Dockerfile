@@ -26,5 +26,5 @@ RUN wget -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" \
 CMD [ "entrypoint.sh" ]
 EXPOSE 10050
 
-HEALTHCHECK NONE
-HEALTHCHECK --start-period=60s CMD health-nc.sh PING 10050 PONG || exit 1
+#commented as linter broken, build step uncomment
+#HEALTHCHECK --start-period=60s CMD health-nc.sh PING 10050 PONG || exit 1
