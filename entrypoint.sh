@@ -18,6 +18,5 @@ cp -a /home/"$NME"/profile /home/"$NME"/.profile
 [ -n "$OLEFY_DEL_TMP" ] && echo "export OLEFY_DEL_TMP=$OLEFY_DEL_TMP" >> /home/"$NME"/.profile
 [ -n "$OLEFY_DEL_TMP_FAILED" ] && echo "export OLEFY_DEL_TMP_FAILED=$OLEFY_DEL_TMP_FAILED" >> /home/"$NME"/.profile
 
-echo "Starting olefy at $(date +'%x %X')"
 echo "Changing to user $NME"
 su -c '/usr/local/bin/olefy.py' - "$NME"
