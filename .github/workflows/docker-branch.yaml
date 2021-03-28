@@ -5,6 +5,16 @@ on:
   push:
     branches:
       - docker-build
+  workflow_dispatch:
+    inputs:
+      deployEnvironment:
+        description: 'Deployment Environment'
+        required: true
+        default: 'dev'
+      logLevel:
+        description: 'The Logging Level'
+        required: false
+        default: 'low'
 
 jobs:
   # Set the job key. The key is displayed as the job name
