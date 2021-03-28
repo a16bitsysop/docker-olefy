@@ -19,7 +19,7 @@ entrypoint.sh ./
 
 SHELL [ "/bin/ash", "-o", "pipefail", "-c" ]
 # hadolint ignore=DL3018
-RUN wget -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" \
+RUN wget -q -S https://raw.githubusercontent.com/$url 2>&1 | grep "ETag:" \
 | sed -e s+\"++g -e 's+.*ETag:\ ++' > /etc/githash \
 && chmod +x olefy.py
 
