@@ -2,17 +2,10 @@
 Alpine based Dockerfile to install [olefy](
 https://github.com/HeinleinSupport/olefy) as a docker container.
 
-[![Docker Pulls](
-https://img.shields.io/docker/pulls/a16bitsysop/olefy.svg?style=flat-square)](
-https://hub.docker.com/r/a16bitsysop/olefy/)
-[![Docker Stars](
-https://img.shields.io/docker/stars/a16bitsysop/olefy.svg?style=flat-square)](
-https://hub.docker.com/r/a16bitsysop/olefy/)
-[![Ver](https://images.microbadger.com/badges/version/a16bitsysop/olefy.svg)](
-https://microbadger.com/images/a16bitsysop/olefy "Get_your_own_version_badge_on_microbadger.com")
-[![Commit](
-https://images.microbadger.com/badges/commit/a16bitsysop/olefy.svg)](
-https://microbadger.com/images/a16bitsysop/olefy "Get_your_own_badge_on_microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/a16bitsysop/olefy.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/olefy/)
+[![Docker Stars](https://img.shields.io/docker/stars/a16bitsysop/olefy.svg?style=plastic)](https://hub.docker.com/r/a16bitsysop/olefy/)
+[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/a16bitsysop/olefy/latest?style=plastic)](https://hub.docker.com/r/a16bitsysop/olefy/)
+[![Github SHA](https://img.shields.io/badge/dynamic/json?style=plastic&color=orange&label=Github%20SHA&query=object.sha&url=https%3A%2F%2Fapi.github.com%2Frepos%2Fa16bitsysop%2Fdocker-olefy%2Fgit%2Frefs%2Fheads%2Fmain)](https://github.com/a16bitsysop/docker-olefy)
 
 ## Github
 Github Repository: [https://github.com/a16bitsysop/docker-olefy](
