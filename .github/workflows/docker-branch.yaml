@@ -37,6 +37,7 @@ jobs:
         uses: github/super-linter@v4.6.0
         env:
           DEFAULT_BRANCH: main
+          FILTER_REGEX_EXCLUDE: .github/worflows/*.yaml
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-test:
@@ -57,7 +58,6 @@ jobs:
           version: latest
       -
         name: Build Test Image
-# shellcheck ignore=SC2086
         run: |
           sed "s/#HEALTHCHECK/HEALTHCHECK/" -i Dockerfile
           export DOCKER_CONTENT_TRUST=1 
@@ -80,20 +80,17 @@ jobs:
           submodules: 'true'
       -
         name: Setup Path
-# shellcheck ignore=SC2086
         run: |
           echo "${GITHUB_WORKSPACE}"/travis-helpers >> $GITHUB_PATH
           echo ${HOME}/.local/bin >> $GITHUB_PATH
       -
         name: Install helper dependencies
-# shellcheck ignore=SC2086
         run: |
           python3 -m pip install --upgrade pip setuptools wheel
           python3 -m pip install --upgrade docker natsort bs4
       -
         name: Get Label Info
         id: docklabel
-# shellcheck ignore=SC2086
         run: |
           INFO=README.md
           if [ -f "$INFO" ]; then
@@ -146,7 +143,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Show Labels
-# shellcheck ignore=SC2086
         run: |
           echo "Alpine Ver:  ${{ steps.docklabel.outputs.alp_ver }}"
           echo "Main Apk: $APK"
