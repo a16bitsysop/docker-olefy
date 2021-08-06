@@ -1,3 +1,5 @@
+#shellcheck disable=SC2086
+
 name: Docker-Build-Push
 
 # Run this workflow every time a new commit pushed to docker-build branch
@@ -103,7 +105,7 @@ jobs:
 
           [ $EDGE == "yes" ] && _e="-e"
           APK_VER="$(date +%d%m%g)"
-          ALP_VER="$(version.py -b)"
+          ALP_VER="$(version.py -b $_e)"
           echo "$ALP_VER, $APK is $APK_VER"
           echo "name: $NAME"
           echo "desc: $DESC"
