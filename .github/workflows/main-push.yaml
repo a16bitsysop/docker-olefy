@@ -27,5 +27,5 @@ jobs:
         uses: github/super-linter@v4.6.0
         env:
           DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: .github/worflows/*.yaml
+          FILTER_REGEX_EXCLUDE: .github/workflows/*.yaml
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
