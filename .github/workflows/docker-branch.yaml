@@ -58,11 +58,8 @@ jobs:
           version: latest
       -
         name: Build Test Image
-        steps:
-          - id: uncomment healthchceck
-            run:  sed "s/#HEALTHCHECK/HEALTHCHECK/" -i Dockerfile
-          - id: build it
-            run: DOCKER_CONTENT_TRUST=1 docker buildx build -t testimage --load .
+          - run: sed "s/#HEALTHCHECK/HEALTHCHECK/" -i Dockerfile
+          - run: DOCKER_CONTENT_TRUST=1 docker buildx build -t testimage --load .
       -
         name: Scan Test Iamge
         uses: Azure/container-scan@v0
