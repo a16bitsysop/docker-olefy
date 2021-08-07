@@ -58,8 +58,8 @@ jobs:
           version: latest
       -
         name: Build Test Image
-          - env:
-              DOCKER_CONTENT_TRUST=1
+        env:
+          DOCKER_CONTENT_TRUST=1
           - run: |
               sed "s/#HEALTHCHECK/HEALTHCHECK/" -i Dockerfile
               docker buildx build -t testimage --load .
